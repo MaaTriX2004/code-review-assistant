@@ -1,5 +1,3 @@
-// frontend/src/components/ErrorBoundary.jsx
-
 import { ErrorBoundary } from 'react-error-boundary';
 import { FiAlertTriangle } from 'react-icons/fi';
 
@@ -22,7 +20,7 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 export const AppErrorBoundary = ({ children }) => (
   <ErrorBoundary
     FallbackComponent={ErrorFallback}
-    onReset={() => window.location.reload()} // Simple reset: reload the page
+    onReset={() => window.location.reload()} //Relod page
   >
     {children}
   </ErrorBoundary>
