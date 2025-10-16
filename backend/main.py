@@ -6,13 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
 from sqlalchemy.orm import Session
-# Import modules from the same directory using relative paths
 import models
 from typing import List
 import schemas
 from database import SessionLocal, engine
 
-# Create the database tables if they don't exist
+# Create the database tables
 models.Base.metadata.create_all(bind=engine)
 
 # Load environment variables from the .env file
@@ -31,7 +30,6 @@ app = FastAPI(
 )
 
 # Configure CORS to allow the frontend React app to communicate with this API
-# This is crucial for local development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins, you can restrict this in production
@@ -57,7 +55,6 @@ async def review_code(db: Session = Depends(get_db), file: UploadFile = File(...
     """
     try:
         contents = await file.read()
-        # Decode the file content as UTF-8
         code_to_review = contents.decode("utf-8")
 
         if not code_to_review.strip():
@@ -98,7 +95,7 @@ async def review_code(db: Session = Depends(get_db), file: UploadFile = File(...
         return db_review
 
     except Exception as e:
-        # Generic error handler for any unexpected issues
+        #  error handler
         raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
 
 @app.get("/reviews/", response_model=List[schemas.Review])
@@ -132,5 +129,4 @@ def delete_review(review_id: int, db: Session = Depends(get_db)):
     db.delete(db_review)
     db.commit()
     
-    # Return a 204 No Content response for successful deletion
     return Response(status_code=204)
