@@ -1,21 +1,15 @@
 # .gitignore
 
-# Python virtual environment
 venv/
 
-# Python cache files within the backend folder
 backend/__pycache__/
 backend/*.pyc
 
-# Local database file in the root directory
 reviews.db
 
-# Secrets file - NEVER track this
 .env
 
-# Frontend dependencies
 frontend/node_modules/
 frontend/dist/
 
-# Operating System files
 .DS_Store
