@@ -1,5 +1,3 @@
-// frontend/src/App.jsx
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from './components/Sidebar';
@@ -94,7 +92,7 @@ function App() {
         reviews={reviews}
         onSelectReview={handleSelectReview}
         onNewChat={handleNewChat}
-        onDeleteReview={handlePromptDelete} // Changed to prompt the delete
+        onDeleteReview={handlePromptDelete}
       />
       <AppErrorBoundary>
         <ChatInterface
