@@ -1,0 +1,7 @@
+# requirements.txt
+fastapi
+uvicorn[standard]
+sqlalchemy
+google-generativeai
+python-dotenv
+python-multipart
