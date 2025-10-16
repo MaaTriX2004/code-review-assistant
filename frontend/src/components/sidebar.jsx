@@ -1,11 +1,9 @@
-// frontend/src/components/Sidebar.jsx
-
 import { FiMessageSquare, FiPlus, FiTrash2 } from 'react-icons/fi';
 
 export default function Sidebar({ reviews, onSelectReview, onNewChat, onDeleteReview }) {
   const handleDeleteClick = (e, review) => {
-    e.stopPropagation(); // Prevents the 'select review' click from also firing
-    onDeleteReview(review); // Call the handler with the full review object
+    e.stopPropagation(); 
+    onDeleteReview(review);
   };
 
   return (
