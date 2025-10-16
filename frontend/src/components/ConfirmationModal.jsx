@@ -1,5 +1,3 @@
-// frontend/src/components/ConfirmationModal.jsx
-
 import { FiAlertTriangle } from 'react-icons/fi';
 
 export default function ConfirmationModal({ isOpen, onClose, onConfirm, review }) {
